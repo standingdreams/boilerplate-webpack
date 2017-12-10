@@ -1,0 +1,11 @@
+production:
+  scheme: ftp
+  host: s48003.gridserver.com
+  port: 21
+  user: dploy-ftp@standingdreams.com
+  pass: +[8D,FQ"wWS?%Q
+  check: false
+  path:
+      local: /
+      remote: 
+  exclude: ["dploy.yaml", "package.json", ".gitignore", "*.md", "bower_components/**", "node_modules/**", ".DS_Store", "src/**", "yarn.lock", "composer.lock", "bower.json", "gulpfile.js"]
