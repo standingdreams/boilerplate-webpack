@@ -13,9 +13,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('/_assets/css/style.css');
 
 let config = {
-  entry: './src/index.js',
+  entry: './src/js/main.js',
   output: {
-    filename: '/_assets/js/bundle.js',
+    filename: './_assets/js/bundle.js',
   },
   module: {
     rules: [
@@ -23,18 +23,21 @@ let config = {
         test: /\.js$/,
         exclude: '/node_modules/',
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: 'babel-preset-es2015',
-          },
+          loader: 'babel-loader'
         },
       },
       {
-        test: /\.s[ac]ss$/,
-        use:
-      },
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ['css-loader', 'sass-loader']
+        })
+      }
     ],
   },
+  plugins: [
+    new ExtractTextPlugin('_assets/css/style.css')
+  ]
 };
 
 module.exports = config;

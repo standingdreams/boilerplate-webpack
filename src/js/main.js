@@ -1,2 +1,4 @@
 import jquery from 'jquery';
-import scripts from './js/global';
+require('../scss/styles.scss');
+
+// import scripts from './js/global';
