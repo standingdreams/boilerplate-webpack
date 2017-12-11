@@ -1,14 +1,14 @@
 /*
-1. Bundle jQuery
-2. Create JS modules
-3. Bundle JS modules
-4. Compile SCSS
-5. Spin up server
-6. Compress images
+- [ ] Minify JS
+- [ ] Minify SCSS
+- [ ] Hot Module Replacement
+- [ ] Tree Shaking
+- [ ] Separate Environments (dev and prod)
+- [ ] Autoprefix CSS
  */
 
-
 const webpack = require('webpack');
+const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('/_assets/css/style.css');
 
@@ -37,7 +37,11 @@ let config = {
   },
   plugins: [
     new ExtractTextPlugin('_assets/css/style.css')
-  ]
+  ],
+  devServer: {
+    contentBase: path.resolve(__dirname, './'),
+    hot: true
+  }
 };
 
 module.exports = config;
